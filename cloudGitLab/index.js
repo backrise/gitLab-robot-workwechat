@@ -24,7 +24,7 @@ async function handlePush(body, robotid) {
         robotid
     );
     let {user_name, ref, project:{name:proName, web_url}, commits} = body;
-    const lastCommit = commits[0];
+    const lastCommit = commits[commits.length - 1];
     const mdMsg =
 `项目 [${proName}](${web_url}) 收到一次push提交
 提交者:  ${user_name}
@@ -45,7 +45,7 @@ commitID: ${lastCommit.id}
         robotid
     );
     let {user_name, ref, project:{name:proName, web_url}, commits} = body;
-    const lastCommit = commits[0];
+    const lastCommit = commits[commits.length - 1];
     const mdMsg =
 `项目 [${proName}](${web_url}) 收到一次push tag提交
 提交者:  ${user_name}

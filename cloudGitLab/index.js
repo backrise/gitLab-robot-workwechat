@@ -112,12 +112,16 @@ exports.main_handler = async (event) => {
         const hour = (date.getHours() + 8) % 24;
         if(9 <= hour && hour <= 21) {
             mdMsg += `
+
 提交了代码, 就喝口水休息一会.
+- - - - - - - - - - - - - - -
 轻松一刻: ${RandArray(jokes)}
 `;
         } else {
             mdMsg += `
+
 现在${hour}点, 是休息时间, 请停止你的内卷行为. 点名批评!
+- - - - - - - - - - - - - - -
 毒鸡汤一则: ${RandArray(cold_jokes)}
 `;
         }

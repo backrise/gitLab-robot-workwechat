@@ -22,12 +22,16 @@ const ChatRobot = require('./chat');
 function handlePush(body, robotid) {
     let {user_name, ref, project:{name:proName, web_url}, commits} = body;
     const lastCommit = commits[commits.length - 1];
+    const lastCommitMsg = lastCommit ?
+`commitID: ${lastCommit.id}
+提交信息: ${lastCommit.message}`
+: ''
+;
     const mdMsg =
 `项目 [${proName}](${web_url}) 收到一次push提交
 提交者:  ${user_name}
-commitID: ${lastCommit.id}
 分支: ${ref}
-提交信息: ${lastCommit.message}`;
+${lastCommitMsg}`
     return mdMsg;
 }
 
@@ -39,12 +43,16 @@ commitID: ${lastCommit.id}
 function handlePushTag(body, robotid) {
     let {user_name, ref, project:{name:proName, web_url}, commits} = body;
     const lastCommit = commits[commits.length - 1];
+    const lastCommitMsg = lastCommit ?
+`commitID: ${lastCommit.id}
+提交信息: ${lastCommit.message}`
+: ''
+;
     const mdMsg =
 `项目 [${proName}](${web_url}) 收到一次push tag提交
 提交者:  ${user_name}
-commitID: ${lastCommit.id}
 分支: ${ref}
-提交信息: ${lastCommit.message}`;
+${lastCommitMsg}`
     return mdMsg;
 }
 

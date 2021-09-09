@@ -24,7 +24,11 @@ function handlePush(body, robotid) {
     const lastCommit = commits[commits.length - 1];
     const lastCommitMsg = lastCommit ?
 `commitID: ${lastCommit.id}
-提交信息: ${lastCommit.message}`
+提交信息:
+- - - - - - - - - - - - - - - - - -
+${lastCommit.message}
+- - - - - - - - - - - - - - - - - -
+`
 : ''
 ;
     const mdMsg =
@@ -46,7 +50,11 @@ function handlePushTag(body, robotid) {
     const lastCommit = commits[commits.length - 1];
     const lastCommitMsg = lastCommit ?
 `commitID: ${lastCommit.id}
-提交信息: ${lastCommit.message}`
+提交信息:
+- - - - - - - - - - - - - - - - - -
+${lastCommit.message}
+- - - - - - - - - - - - - - - - - -
+`
 : ''
 ;
     const mdMsg =

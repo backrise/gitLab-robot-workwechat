@@ -135,14 +135,12 @@ exports.main_handler = async (event) => {
 
 提交了代码, 就喝口水休息一会.
 - - - - - - - - - - - - - - -
-轻松一刻: ${RandArray(jokes)}
 `;
         } else {
             mdMsg += `
 
 现在${hour}点, 是休息时间, 请停止你的内卷行为. 点名批评!
 - - - - - - - - - - - - - - -
-毒鸡汤一则: ${RandArray(cold_jokes)}
 `;
         }
         await robot.sendMdMsg(mdMsg);

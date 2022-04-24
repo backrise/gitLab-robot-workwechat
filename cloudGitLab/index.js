@@ -23,7 +23,7 @@ function handlePush(body, robotid) {
     let {user_name, ref, project:{name:proName, web_url}, commits} = body;
     const lastCommit = commits[commits.length - 1];
     const lastCommitMsg = lastCommit ?
-`commitID: ${lastCommit.id}
+`commitID: [${lastCommit.id}](${web_url}/-/commit/${lastCommit.id})
 提交信息:
 - - - - - - - - - - - - - - - - - -
 ${lastCommit.message}
@@ -49,7 +49,7 @@ function handlePushTag(body, robotid) {
     let {user_name, ref, project:{name:proName, web_url}, commits} = body;
     const lastCommit = commits[commits.length - 1];
     const lastCommitMsg = lastCommit ?
-`commitID: ${lastCommit.id}
+`commitID: [${lastCommit.id}](${web_url}/-/commit/${lastCommit.id})
 提交信息:
 - - - - - - - - - - - - - - - - - -
 ${lastCommit.message}

@@ -117,13 +117,10 @@ function RandArray(array){
     return rValue;
 }
 
-exports.main_handler = async (event) => {
-    const headersKey = event.headers[HEADER_KEY];
+async function handlerEntry({robotid, bodyObj}){
     const date = new Date()
-    const robotid = event.queryString.id;
-    const bodyObj = JSON.parse(event.body);
     const gitEvent = bodyObj.event_name || bodyObj.object_kind;
-    const f = eventHandMap[headersKey] || eventHandMap[gitEvent];
+    const f = eventHandMap[gitEvent];
     const robot = new ChatRobot(
         robotid
     );
@@ -148,3 +145,11 @@ exports.main_handler = async (event) => {
     }
     return handleDefault(gitEvent);
 };
+
+exports.main_handler = async (event) => {
+    const robotid = event.queryString.id;
+    const bodyObj = JSON.parse(event.body);
+    return await handlerEntry({robotid: robotid, bodyObj: bodyObj})
+};
+
+exports.handler_entry = handlerEntry

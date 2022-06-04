@@ -1,0 +1,23 @@
+{
+  "name": "gitlab-robot-workwechat",
+  "version": "1.0.0",
+  "description": "通过云函数创建一个企业微信机器人 1. `git clone https://github.com/ydCao/gitLab-robot-workwechat.git`",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/backrise/gitLab-robot-workwechat.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/backrise/gitLab-robot-workwechat/issues"
+  },
+  "homepage": "https://github.com/backrise/gitLab-robot-workwechat#readme",
+  "dependencies": {
+    "request": "^2.88.2"
+  }
+}
